@@ -1,0 +1,27 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap";
+@import "reset";
+@import "variables/global";
+
+.sb-main-padded.app {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--text-primary);
+  font: var(--font-m);
+}
+
+.app {
+  min-height: 100vh;
+  background-color: var(--bg-color-primary);
+}
+
+.content-page {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
+}
