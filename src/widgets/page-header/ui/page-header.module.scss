@@ -1,0 +1,11 @@
+.pageHeader {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  height: var(--header-heigh);
+  background-color: var(--bg-color-light);
+}
+
+.logo {
+  fill: var(--bg-color-primary);
+}

@@ -17,11 +17,8 @@ body {
   background-color: var(--bg-color-primary);
 }
 
-.content-page {
-  display: flex;
-}
-
-.page-wrapper {
-  flex-grow: 1;
-  padding: 20px;
+.container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
 }
