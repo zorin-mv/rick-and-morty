@@ -1,4 +1,6 @@
 import { classNames } from 'shared/lib/class-names';
+import { Banner } from 'widgets/banner';
+import { PageHeader } from 'widgets/page-header';
 
 import classes from './page-error.module.scss';
 
@@ -13,8 +15,11 @@ export const PageError = ({ className }: IPageErrorProps) => {
 
   return (
     <div className={classNames(classes.pageError, [className])}>
-      <p>Something went wrong...</p>
-      <button onClick={reloadPage}>Reload Page</button>
+      <PageHeader />
+      <Banner title="Sorry, something went wrong..." />
+      <button className={classes.pageError__reloadBtn} onClick={reloadPage}>
+        Reload Page
+      </button>
     </div>
   );
 };
