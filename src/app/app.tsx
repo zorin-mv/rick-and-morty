@@ -5,8 +5,6 @@ import { AppRouter } from './providers/router';
 export const App = () => (
   <div className="app">
     <PageHeader />
-    <div className="container">
-      <AppRouter />
-    </div>
+    <AppRouter />
   </div>
 );

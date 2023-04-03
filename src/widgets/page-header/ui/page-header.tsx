@@ -12,10 +12,10 @@ interface IPageHeaderProps {
 
 export const PageHeader = memo(({ className }: IPageHeaderProps) => {
   return (
-    <div data-testid="page-header" className={classNames(classes.pageHeader, [className])}>
+    <header data-testid="page-header" className={classNames(classes.pageHeader, [className])}>
       <Link data-testid="link" to={RoutePath.main}>
         <Icon data-testid="logo" type="logo" className={classes.logo} />
       </Link>
-    </div>
+    </header>
   );
 });

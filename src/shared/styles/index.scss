@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700,900&display=swap";
 @import "reset";
 @import "variables/global";
 
@@ -10,6 +10,7 @@
 body {
   color: var(--text-primary);
   font: var(--font-m);
+  min-width: var(--min-width);
 }
 
 .app {
@@ -18,7 +19,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--max-width);
   padding: 0 20px;
   margin: 0 auto;
 }
