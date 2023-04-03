@@ -14,7 +14,7 @@ export const PageHeader = memo(({ className }: IPageHeaderProps) => {
   return (
     <header data-testid="page-header" className={classNames(classes.pageHeader, [className])}>
       <Link data-testid="link" to={RoutePath.main}>
-        <Icon data-testid="logo" type="logo" className={classes.logo} />
+        <Icon data-testid="logo" type="logo" className={classes.pageHeader__logo} />
       </Link>
     </header>
   );
