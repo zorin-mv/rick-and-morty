@@ -1,9 +1,16 @@
 .pageError {
   width: 100%;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   background-color: var(--bg-color-primary);
+
+  &__reloadBtn {
+    display: block;
+    margin: 10px auto 0;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--bg-color-light);
+    background-color: var(--bg-color-primary);
+    color: var(--text-primary);
+  }
 }
