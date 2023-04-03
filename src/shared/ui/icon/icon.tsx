@@ -1,7 +1,8 @@
 import { memo } from 'react';
+import { ReactComponent as banner } from 'shared/assets/icons/banner.svg';
 import { ReactComponent as logo } from 'shared/assets/icons/logo.svg';
 
-const ICONS = { logo };
+const ICONS = { logo, banner };
 
 export type TIcon = keyof typeof ICONS;
 
