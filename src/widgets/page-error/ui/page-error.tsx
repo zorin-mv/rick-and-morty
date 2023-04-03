@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/class-names';
-import { Button } from 'shared/ui/button';
 
 import classes from './page-error.module.scss';
 
@@ -15,7 +14,7 @@ export const PageError = ({ className }: IPageErrorProps) => {
   return (
     <div className={classNames(classes.pageError, [className])}>
       <p>Something went wrong...</p>
-      <Button onClick={reloadPage}>Reload Page</Button>
+      <button onClick={reloadPage}>Reload Page</button>
     </div>
   );
 };

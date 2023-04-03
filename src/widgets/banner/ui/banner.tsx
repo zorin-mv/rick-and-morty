@@ -11,8 +11,8 @@ interface IBannerProps {
 export const Banner = ({ className, title }: IBannerProps) => {
   return (
     <section data-testid="banner" className={classNames(classes.banner, [className])}>
-      {title ? <h1 className={classes.banner_title}>{title}</h1> : null}
-      <div className={classes.banner_heroImage}>
+      {title ? <h1 className={classes.banner__title}>{title}</h1> : null}
+      <div className={classes.banner__heroImage}>
         <Icon type="banner" />
       </div>
     </section>

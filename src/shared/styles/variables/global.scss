@@ -19,19 +19,19 @@
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
   // ---h1
-  --font-size-h1: 92px;
-  --font-line-h1: 100px;
-  --font-h1: var(--font-size-h1) / var(--font-line-h1) var(--font-family-main);
+  --font-size-h1: 82px;
+  --font-line-h1: 90px;
+  --font-h1: 900 var(--font-size-h1) / var(--font-line-h1) var(--font-family-main);
 
   // ---tablet
-  --font-size-h1-tablet: 62px;
-  --font-line-h1-tablet: 70px;
-  --font-h1-tablet: var(--font-size-h1-tablet) / var(--font-line-h1-tablet) var(--font-family-main);
+  --font-size-h1-tablet: 52px;
+  --font-line-h1-tablet: 60px;
+  --font-h1-tablet: 900 var(--font-size-h1-tablet) / var(--font-line-h1-tablet) var(--font-family-main);
 
   // ---mobile
-  --font-size-h1-mobile: 36px;
+  --font-size-h1-mobile: 32px;
   --font-line-h1-mobile: 40px;
-  --font-h1-mobile: var(--font-size-h1-mobile) / var(--font-line-h1-mobile) var(--font-family-main);
+  --font-h1-mobile: 900 var(--font-size-h1-mobile) / var(--font-line-h1-mobile) var(--font-family-main);
 
   // width, heigh
   --header-heigh: 60px;
@@ -48,4 +48,5 @@
   --text-primary: #f5f5f5;
   --text-secondary: #9e9e9e;
   --primary-color: #212328;
+  --input-focus: #5090d3;
 }

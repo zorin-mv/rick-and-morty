@@ -1,0 +1,47 @@
+.inputWrapper {
+  display: flex;
+  position: relative;
+  padding: 20px 0;
+  background-color: var(--bg-color-primary);
+
+  &__input {
+    width: 100%;
+    padding: 10px;
+    color: var(--text-primary);
+    background-color: transparent;
+    border: 2px solid var(--text-secondary);
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+
+    &_disabled {
+      opacity: 0.7;
+    }
+
+    &__placeholder {
+      background-color: var(--bg-color-primary);
+      padding: 0 5px;
+      position: absolute;
+      z-index: var(--z-index-low);
+      transition: 0.3s;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+    }
+
+    &:hover {
+      border: 2px solid var(--text-primary);
+    }
+
+    &:focus {
+      border: 2px solid var(--input-focus);
+
+      + span {
+        color: var(--text-primary);
+        top: 20px;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
