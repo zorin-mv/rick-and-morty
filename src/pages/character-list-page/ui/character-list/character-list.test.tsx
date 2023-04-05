@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
 import { type ICharacter } from 'entities/character';
+import { componentRender } from 'shared/lib/tests/component-render';
 import { vi } from 'vitest';
 
 import { CharacterList } from './character-list';
@@ -16,7 +16,7 @@ describe('CharacterList', () => {
   });
 
   test('renders empty message', () => {
-    const { getByTestId } = render(<CharacterList />);
+    const { getByTestId } = componentRender(<CharacterList />);
     expect(getByTestId('empty-character-list')).toBeInTheDocument();
   });
 
@@ -41,7 +41,7 @@ describe('CharacterList', () => {
         origin: { name: 'Earth' },
       },
     ];
-    const { getByTestId } = render(<CharacterList characterList={characters} />);
+    const { getByTestId } = componentRender(<CharacterList characterList={characters} />);
     expect(getByTestId('character-list')).toBeInTheDocument();
   });
 });

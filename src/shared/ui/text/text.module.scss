@@ -14,16 +14,24 @@
     text-align: center;
   }
 
+  &_inline {
+    flex-direction: row;
+    align-items: baseline;
+
+    .text {
+      margin-left: 10px;
+    }
+  }
+
   &_primary {
     .text,
-    .title {
+    .title,
+    .subtitle {
       color: var(--text-primary);
     }
+  }
 
-    .title {
-      font-weight: 700;
-    }
-
+  &_secondary {
     .subTitle {
       color: var(--text-secondary);
     }
@@ -41,6 +49,7 @@
 
   &__title {
     font: var(--font-l);
+    font-weight: 700;
   }
 
   &__text {

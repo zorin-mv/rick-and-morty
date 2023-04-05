@@ -1,58 +1,10 @@
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { render, waitFor } from '@testing-library/react';
 import { type ICharactersQueryResponse } from 'entities/character';
+import { MemoryRouter } from 'react-router-dom';
 import { vi, type Mock } from 'vitest';
 
 import { CharacterListPage } from './character-list-page';
-
-vi.mock('@tanstack/react-query', async () => {
-  const actual: any = await vi.importActual('@tanstack/react-query');
-  return {
-    ...actual,
-    useQuery: vi.fn(),
-  };
-});
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
-
-const wrapper = ({ children }: { children: React.ReactNode }) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-);
-
-const data: ICharactersQueryResponse = {
-  characters: {
-    info: {
-      pages: 1,
-      count: 2,
-    },
-    results: [
-      {
-        id: '1',
-        name: 'Rick Sanchez',
-        status: 'Alive',
-        species: 'Human',
-        type: 'unknown',
-        image: '',
-        origin: { name: 'Earth' },
-      },
-      {
-        id: '2',
-        name: 'Morty Smith',
-        status: 'Alive',
-        species: 'Human',
-        type: 'unknown',
-        image: '',
-        origin: { name: 'Earth' },
-      },
-    ],
-  },
-};
 
 describe('character-list-page', () => {
   beforeEach(() => {
@@ -66,12 +18,66 @@ describe('character-list-page', () => {
     window.IntersectionObserver = mockIntersectionObserver;
   });
 
+  vi.mock('@tanstack/react-query', async () => {
+    const actual: any = await vi.importActual('@tanstack/react-query');
+    return {
+      ...actual,
+      useQuery: vi.fn(),
+    };
+  });
+
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+    },
+  });
+
+  const wrapper = ({ children }: { children: React.ReactNode }) => (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
+
+  const data: ICharactersQueryResponse = {
+    characters: {
+      info: {
+        pages: 1,
+        count: 2,
+      },
+      results: [
+        {
+          id: '1',
+          name: 'Rick Sanchez',
+          status: 'Alive',
+          species: 'Human',
+          type: 'unknown',
+          image: '',
+          origin: { name: 'Earth' },
+        },
+        {
+          id: '2',
+          name: 'Morty Smith',
+          status: 'Alive',
+          species: 'Human',
+          type: 'unknown',
+          image: '',
+          origin: { name: 'Earth' },
+        },
+      ],
+    },
+  };
+
   test('renders while fetching data', async () => {
     (useQuery as Mock).mockReturnValueOnce({
       isLoading: true,
     });
 
-    const { getByTestId } = render(<CharacterListPage />, { wrapper });
+    const { getByTestId } = render(
+      <MemoryRouter>
+        <CharacterListPage />
+      </MemoryRouter>,
+      { wrapper }
+    );
 
     await waitFor(() => {
       expect(getByTestId('spinner')).toBeInTheDocument();
@@ -83,7 +89,12 @@ describe('character-list-page', () => {
       data,
     });
 
-    const { getByTestId } = render(<CharacterListPage />, { wrapper });
+    const { getByTestId } = render(
+      <MemoryRouter>
+        <CharacterListPage />
+      </MemoryRouter>,
+      { wrapper }
+    );
 
     await waitFor(() => {
       expect(getByTestId('pagination')).toBeInTheDocument();
@@ -96,7 +107,12 @@ describe('character-list-page', () => {
       error: { message: 'test error' },
     });
 
-    const { getByTestId } = render(<CharacterListPage />, { wrapper });
+    const { getByTestId } = render(
+      <MemoryRouter>
+        <CharacterListPage />
+      </MemoryRouter>,
+      { wrapper }
+    );
 
     await waitFor(() => {
       expect(getByTestId('error')).toHaveTextContent('test error');
