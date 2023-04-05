@@ -17,11 +17,12 @@ export const Input = memo((props: IInputProps) => {
   const { className, disabled, value, onChange, placeholder, ...restProps } = props;
 
   return (
-    <div className={classes.inputWrapper}>
+    <div className={classNames(classes.inputWrapper, [className])}>
       <input
         data-testid="input"
-        className={classNames(classes.inputWrapper__input, [className], {
+        className={classNames(classes.inputWrapper__input, [], {
           [classes.inputWrapper__input_disabled]: disabled,
+          [classes.inputWrapper__input_filled]: !!value,
         })}
         disabled={disabled}
         value={value}

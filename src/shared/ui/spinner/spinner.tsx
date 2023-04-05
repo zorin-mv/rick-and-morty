@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/class-names';
+import { Icon } from 'shared/ui/icon';
 
-import { Icon } from '../icon';
 import classes from './spinner.module.scss';
 
 const SPINNER_THEME = {
@@ -17,7 +17,7 @@ interface ISpinnerProps {
 }
 
 export const Spinner = memo(({ className, theme = 'dark' }: ISpinnerProps) => (
-  <div className={classNames(classes.spinner, [className, classes[`spinner_${theme}`]])}>
+  <div data-testid="spinner" className={classNames(classes.spinner, [className, classes[`spinner_${theme}`]])}>
     <Icon type="logo" />
   </div>
 ));

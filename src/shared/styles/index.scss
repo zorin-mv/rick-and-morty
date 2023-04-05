@@ -7,6 +7,11 @@
   margin: 0;
 }
 
+*::selection {
+  color: var(--text-hovered);
+  background-color: var(--bg-color-primary);
+}
+
 body {
   color: var(--text-primary);
   font: var(--font-m);
@@ -22,4 +27,13 @@ body {
   max-width: var(--max-width);
   padding: 0 20px;
   margin: 0 auto;
+}
+
+.LazyLoad {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.is-visible {
+  opacity: 1;
 }
