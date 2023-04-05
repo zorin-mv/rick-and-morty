@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { type ICharacter } from 'entities/character';
+import { componentRender } from 'shared/lib/tests/component-render';
 import { vi } from 'vitest';
 
 import { CharacterItem } from './character-item';
@@ -26,7 +27,7 @@ describe('CharacterItem', () => {
   });
 
   test('renders character information correctly', () => {
-    render(<CharacterItem character={character} />);
+    componentRender(<CharacterItem character={character} />);
 
     const nameElement = screen.getByTestId('name');
     expect(nameElement).toHaveTextContent('Rick Sanchez');

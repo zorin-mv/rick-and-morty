@@ -47,6 +47,7 @@ module.exports = {
     '@typescript-eslint/triple-slash-reference': 'off',
     'react/display-name': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/promise-function-async': 'off',
   },
   root: true,
 };

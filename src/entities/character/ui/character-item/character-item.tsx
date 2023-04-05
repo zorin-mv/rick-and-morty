@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { classNames } from 'shared/lib/class-names';
 import { LazyImage } from 'shared/ui/lazy-image/lazy-image';
 import { TextComponent } from 'shared/ui/text';
@@ -12,8 +13,18 @@ interface ICharacterItemProps {
 }
 
 export const CharacterItem = ({ className, character }: ICharacterItemProps) => {
+  const navigate = useNavigate();
+
+  const handleCharacterItemClick = () => {
+    navigate(`character-info/${character.id}`);
+  };
+
   return (
-    <article data-testid="character-item" className={classNames(classes.characterItem, [className])}>
+    <article
+      data-testid="character-item"
+      onClick={handleCharacterItemClick}
+      className={classNames(classes.characterItem, [className])}
+    >
       <div className={classes.characterItem__imageWrapper}>
         <LazyImage src={character.image} alt="character's avatar" />
       </div>
@@ -30,10 +41,10 @@ export const CharacterItem = ({ className, character }: ICharacterItemProps) => 
           <TextComponent text={`${character.status} - ${character.species}`} />
         </div>
         <div data-testid="type">
-          <TextComponent subTitle="Type:" text={character.type || 'unknown'} />
+          <TextComponent subTitle="Type:" text={character.type || 'unknown'} theme="secondary" />
         </div>
         <div data-testid="origin">
-          <TextComponent subTitle="Origin:" text={character.origin.name} />
+          <TextComponent subTitle="Origin:" text={character.origin.name} theme="secondary" />
         </div>
       </div>
     </article>

@@ -10,4 +10,5 @@ export interface ITextProps {
   text?: string;
   theme?: TTextTheme;
   align?: TTextAlign;
+  isInline?: boolean;
 }

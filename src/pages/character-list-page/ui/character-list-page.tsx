@@ -32,6 +32,19 @@ export const CharacterListPage = () => {
     setPage(selectedPage);
   };
 
+  if (error) {
+    return (
+      <section>
+        <Banner title="Rick And Morty Characters" />
+        <div className="container" ref={sectionRef}>
+          <div data-testid="error">
+            <TextComponent text={error.message} theme="error" />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <ThemeProvider theme={MUI_THEME}>
       <section>
@@ -44,15 +57,7 @@ export const CharacterListPage = () => {
             className={classes.characterListPage__search}
           />
           <div>
-            {isLoading ? (
-              <Spinner theme="light" />
-            ) : error ? (
-              <div data-testid="error">
-                <TextComponent text={error.message} theme="error" />
-              </div>
-            ) : (
-              <CharacterList characterList={data?.characters.results} />
-            )}
+            {isLoading ? <Spinner theme="light" /> : <CharacterList characterList={data?.characters.results} />}
           </div>
           {data?.characters.info.pages ? (
             <div data-testid="pagination">
