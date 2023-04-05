@@ -12,7 +12,7 @@
     border: 2px solid var(--text-secondary);
     border-radius: 5px;
     outline: none;
-    transition: 0.3s;
+    transition: border 0.3s;
 
     &_disabled {
       opacity: 0.7;
@@ -23,7 +23,7 @@
       padding: 0 5px;
       position: absolute;
       z-index: var(--z-index-low);
-      transition: 0.3s;
+      transition: top 0.3s, transform 0.3s, color 0.3s;
       left: 10px;
       top: 50%;
       transform: translateY(-50%);
@@ -34,14 +34,17 @@
       border: 2px solid var(--text-primary);
     }
 
+    &_filled,
     &:focus {
-      border: 2px solid var(--input-focus);
-
       + span {
         color: var(--text-primary);
         top: 20px;
         transform: translateY(-50%);
       }
+    }
+
+    &:focus {
+      border: 2px solid var(--input-focus);
     }
   }
 }

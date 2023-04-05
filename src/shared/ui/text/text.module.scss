@@ -1,0 +1,49 @@
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+
+  &_left {
+    text-align: left;
+  }
+
+  &_right {
+    text-align: right;
+  }
+
+  &_center {
+    text-align: center;
+  }
+
+  &_primary {
+    .text,
+    .title {
+      color: var(--text-primary);
+    }
+
+    .title {
+      font-weight: 700;
+    }
+
+    .subTitle {
+      color: var(--text-secondary);
+    }
+  }
+
+  &_error {
+    .text {
+      color: var(--color-red-dark);
+    }
+
+    .title {
+      color: var(--color-red-light);
+    }
+  }
+
+  &__title {
+    font: var(--font-l);
+  }
+
+  &__text {
+    font: var(--font-m);
+  }
+}

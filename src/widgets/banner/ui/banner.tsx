@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { classNames } from 'shared/lib/class-names';
 import { Icon } from 'shared/ui/icon';
 
@@ -8,7 +9,7 @@ interface IBannerProps {
   className?: string;
 }
 
-export const Banner = ({ className, title }: IBannerProps) => {
+export const Banner = memo(({ className, title }: IBannerProps) => {
   return (
     <section data-testid="banner" className={classNames(classes.banner, [className])}>
       {title ? <h1 className={classes.banner__title}>{title}</h1> : null}
@@ -17,4 +18,4 @@ export const Banner = ({ className, title }: IBannerProps) => {
       </div>
     </section>
   );
-};
+});
